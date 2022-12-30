@@ -10,5 +10,6 @@ on:
 
 jobs:
   run_tests:
-    uses: jhonata-santos/ruby-automation-api-template/.github/workflows/ruby-api-tests.yml@master
+    steps:
+      uses: jhonata-santos/reusable-workflow/.github/workflows/ruby-api-tests.yml@master
   
