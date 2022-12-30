@@ -1,0 +1,35 @@
+name: Healthcheck
+
+on: 
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        description: Choose the environment you want to run the tests 
+        default: 'stg'
+        options:
+        - dev
+        - stg
+        - prd
+        required: true
+      threads:  
+        type: choice
+        description: Choose how many parallels you want to run
+        default: '1'
+        options:
+        - '1'
+        - '2'
+        - '3'
+        required: true
+      tag:    
+        type: string
+        description: Enter the tag of the scenario or suite you want to run
+        required: true
+
+jobs:
+  run_tests:
+    uses: jhonata-santos/reusable-workflow/.github/workflows/ruby-api-tests.yml@master
+    with:
+      env: ${{ inputs.env }}
+      threads: ${{ inputs.threads }}
+      tag: ${{ inputs.tag }}
