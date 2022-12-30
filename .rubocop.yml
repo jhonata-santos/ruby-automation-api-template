@@ -1,0 +1,26 @@
+AllCops:
+  TargetRubyVersion: 2.7.3
+
+Layout/LineLength:
+  Max: 150
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashLikeCase:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Style/SingleLineMethods:
+  Enabled: false

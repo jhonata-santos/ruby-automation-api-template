@@ -1,0 +1,6 @@
+dev:
+  marvel: http://dev-gateway.marvel.com
+stg:
+  marvel: http://stg-gateway.marvel.com
+prd:
+  marvel: https://gateway.marvel.com:443

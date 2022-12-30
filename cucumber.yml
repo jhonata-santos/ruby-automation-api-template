@@ -1,0 +1,32 @@
+<%
+  parallel_file_path = 'reports/parallel'
+  sequential_file_path = 'reports/sequential'
+  final_report_file_path = 'reports/final_reports'
+
+  FileUtils.mkdir_p(parallel_file_path) unless File.exist?(parallel_file_path)
+  FileUtils.mkdir_p(sequential_file_path) unless File.exist?(sequential_file_path)
+  FileUtils.mkdir_p(final_report_file_path) unless File.exist?(final_report_file_path)
+
+  test_id = ENV['TEST_ENV_NUMBER']
+%>
+
+# ENVIRONMENTS
+dev: ENVIRONMENT=dev
+stg: ENVIRONMENT=stg
+prd: ENVIRONMENT=prd
+
+# PARALLEL
+parallel_parameter: PARALLEL=true
+
+# REPORT SEQUENTIAL
+report_sequential: -p html_report_sequential -p json_report_sequential -p disable_warning_cucumber
+html_report_sequential: --format pretty --format html --out reports/sequential/report.html
+json_report_sequential: --format pretty --format json --out reports/sequential/report.json
+
+# REPORT PARALLEL
+report_parallel: -p html_report_parallel -p json_report_parallel -p parallel_parameter -p disable_warning_cucumber
+html_report_parallel: --format pretty --format html --out <%= parallel_file_path %>/<%= test_id %>.html
+json_report_parallel: --format pretty --format json --out <%= parallel_file_path %>/<%= test_id %>.json
+
+# CUCUMBER WARNING
+disable_warning_cucumber: --publish-quiet
