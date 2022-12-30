@@ -1,4 +1,4 @@
-name: Healthcheck
+name: Sandbox
 
 on: 
   workflow_dispatch:
