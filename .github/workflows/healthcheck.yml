@@ -11,4 +11,4 @@ on:
 jobs:
   run_tests:
     uses: jhonata-santos/ruby-automation-api-template/.github/workflows/api/ruby-api-tests.yml@master
-    
+  
