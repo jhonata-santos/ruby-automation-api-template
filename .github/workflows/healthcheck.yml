@@ -11,4 +11,7 @@ on:
 jobs:
   run_tests:
     uses: jhonata-santos/reusable-workflow/.github/workflows/ruby-api-tests.yml@master
-  
+    with:
+      env: stg
+      threads: '1'
+      tag: '@full_smoke'
